@@ -36,10 +36,14 @@ public class ProductRepository {
         return productList;
     }
 
-    public void updateProductLikes(Product updatedProduct) {
+    public void updateProductLikes(Product updatedProduct, boolean isLiked) {
         for (Product product : productList) {
             if (product.getProductName().equalsIgnoreCase(updatedProduct.getProductName())) {
-                product.setLikes(updatedProduct.getLikes() + 1);
+                if (isLiked) {
+                    product.setLikes(updatedProduct.getLikes() + 1);
+                } else {
+                    product.setLikes(updatedProduct.getLikes() - 1);
+                }
                 break;
             }
         }

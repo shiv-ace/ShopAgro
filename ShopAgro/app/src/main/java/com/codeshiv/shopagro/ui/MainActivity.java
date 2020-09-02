@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onProductLikeClickListener(Product product) {
-        productRepository.updateProductLikes(product);
+    public void onProductLikeClickListener(Product product, boolean isLiked) {
+        productRepository.updateProductLikes(product, isLiked);
     }
 }

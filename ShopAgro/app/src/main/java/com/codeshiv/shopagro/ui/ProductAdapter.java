@@ -48,7 +48,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         Glide.with(viewHolder.productImage).load(product.getImageUrl()).into(viewHolder.productImage);
         viewHolder.productName.setText(product.getProductName());
         viewHolder.itemView.setOnClickListener(view -> productItemClickListener.onProductClicked(product));
-        viewHolder.productLikes.setOnClickListener(view -> productLikesClickListener.onProductLikeClickListener(product));
+        viewHolder.productLikes.setOnClickListener(view -> productLikesClickListener.onProductLikeClickListener(product, true));
+        viewHolder.productDisLikes.setOnClickListener(view -> productLikesClickListener.onProductLikeClickListener(product, false));
     }
 
     @Override
@@ -66,6 +67,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         @BindView(R.id.product_likes)
         TextView productLikes;
+
+        @BindView(R.id.product_dis_likes)
+        TextView productDisLikes;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);

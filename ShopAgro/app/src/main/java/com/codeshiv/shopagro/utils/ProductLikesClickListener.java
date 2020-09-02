@@ -4,5 +4,5 @@ import com.codeshiv.shopagro.model.Product;
 
 public interface ProductLikesClickListener {
 
-    void onProductLikeClickListener(Product product);
+    void onProductLikeClickListener(Product product, boolean isLiked);
 }

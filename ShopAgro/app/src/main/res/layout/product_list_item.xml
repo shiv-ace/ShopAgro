@@ -41,6 +41,15 @@
                 android:layout_margin="5dp"
                 android:text="@string/product_like" />
 
+            <TextView
+                android:id="@+id/product_dis_likes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_image_view"
+                android:layout_margin="5dp"
+                android:layout_toStartOf="@id/product_likes"
+                android:text="@string/product_dis_like" />
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
