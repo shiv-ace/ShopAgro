@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new ProductAdapter(productRepository.getProductsList(), this::onProductClicked));
+        recyclerView.setAdapter(new ProductAdapter(productRepository.getProductsList(), this::onProductClicked, this::onProductLikeClickListener));
     }
 
     @Override
@@ -55,8 +55,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onProductClicked(Product product) {
+
+        final Product updatedProduct = productRepository.getUpdatedProduct(product);
+        if (updatedProduct == null) {
+            return;
+        }
+
         final Intent intent = new Intent(this, ProductDetails.class);
-        intent.putExtra("PRODUCT", product);
+        intent.putExtra("PRODUCT", updatedProduct);
         startActivity(intent);
+    }
+
+    public void onProductLikeClickListener(Product product) {
+        productRepository.updateProductLikes(product);
     }
 }

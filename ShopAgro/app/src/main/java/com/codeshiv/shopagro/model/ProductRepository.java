@@ -1,5 +1,7 @@
 package com.codeshiv.shopagro.model;
 
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,13 +11,15 @@ import javax.inject.Inject;
 
 public class ProductRepository {
 
+    private List<Product> productList;
+
     @Inject
     public ProductRepository() {
 
     }
 
     public List<Product> getProductsList() {
-        final List<Product> productList = new ArrayList<>(10);
+        productList = new ArrayList<>(10);
 
         for (int i = 0; i < 10; i++) {
 
@@ -32,4 +36,24 @@ public class ProductRepository {
         return productList;
     }
 
+    public void updateProductLikes(Product updatedProduct) {
+        for (Product product : productList) {
+            if (product.getProductName().equalsIgnoreCase(updatedProduct.getProductName())) {
+                product.setLikes(updatedProduct.getLikes() + 1);
+                break;
+            }
+        }
+    }
+
+    @Nullable
+    public Product getUpdatedProduct(Product staleProduct) {
+        Product product = null;
+        for (Product productInList : productList) {
+            if (productInList.getProductName().equalsIgnoreCase(staleProduct.getProductName())) {
+                product = productInList;
+                break;
+            }
+        }
+        return product;
+    }
 }

@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.codeshiv.shopagro.R;
 import com.codeshiv.shopagro.model.Product;
 import com.codeshiv.shopagro.utils.ProductItemClickListener;
+import com.codeshiv.shopagro.utils.ProductLikesClickListener;
 
 import java.util.List;
 
@@ -23,10 +24,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     private List<Product> productList;
     private ProductItemClickListener productItemClickListener;
+    private ProductLikesClickListener productLikesClickListener;
 
-    public ProductAdapter(List<Product> products, ProductItemClickListener clickListener) {
+    public ProductAdapter(List<Product> products, ProductItemClickListener clickListener, ProductLikesClickListener likesClickListener) {
         productList = products;
         productItemClickListener = clickListener;
+        productLikesClickListener = likesClickListener;
     }
 
     @NonNull
@@ -45,6 +48,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         Glide.with(viewHolder.productImage).load(product.getImageUrl()).into(viewHolder.productImage);
         viewHolder.productName.setText(product.getProductName());
         viewHolder.itemView.setOnClickListener(view -> productItemClickListener.onProductClicked(product));
+        viewHolder.productLikes.setOnClickListener(view -> productLikesClickListener.onProductLikeClickListener(product));
     }
 
     @Override
@@ -59,6 +63,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         @BindView(R.id.product_name)
         TextView productName;
+
+        @BindView(R.id.product_likes)
+        TextView productLikes;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
