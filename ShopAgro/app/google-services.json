@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "418385948748",
+    "firebase_url": "https://shopagro-1598981299765.firebaseio.com",
+    "project_id": "shopagro-1598981299765",
+    "storage_bucket": "shopagro-1598981299765.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418385948748:android:902ad053fe1084135844e9",
+        "android_client_info": {
+          "package_name": "com.codeshiv.shopagro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418385948748-rpf79ti2kdhi0ntku5mjvl5qmbhdktr8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codeshiv.shopagro",
+            "certificate_hash": "606af8dec2099a94c945638feb6949f514d6ed64"
+          }
+        },
+        {
+          "client_id": "418385948748-cvugg8hbftt5i9jqvsj9t9mm2fkqm6cd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8yJPsejQ3xZ1cCV1CtOHo4c996qQAj_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418385948748-cvugg8hbftt5i9jqvsj9t9mm2fkqm6cd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
