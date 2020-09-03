@@ -27,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.my_recycler_view)
     protected RecyclerView recyclerView;
+
     @Inject
     protected ProductRepository productRepository;
+
     private Unbinder unbinder;
 
     @Override

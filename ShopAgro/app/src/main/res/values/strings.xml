@@ -6,4 +6,7 @@
     <string name="shared_preference_name">com.codeshiv.shopagro.sharedpreference</string>
     <string name="product_like">Like</string>
     <string name="product_dis_like">DisLike</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
 </resources>

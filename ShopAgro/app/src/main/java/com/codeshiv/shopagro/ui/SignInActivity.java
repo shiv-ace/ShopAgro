@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +36,7 @@ import butterknife.Unbinder;
 import dagger.hilt.android.AndroidEntryPoint;
 
 
+import static android.text.TextUtils.isEmpty;
 import static com.codeshiv.shopagro.utils.PreferenceKeys.IS_LOGGED_IN;
 
 @AndroidEntryPoint
@@ -45,6 +49,12 @@ public class SignInActivity extends AppCompatActivity {
     protected SignInButton signInButton;
     @BindView(R.id.login_button)
     protected LoginButton loginButton;
+    @BindView(R.id.user_login_button)
+    protected Button userLoginButton;
+    @BindView(R.id.password_field)
+    protected EditText password;
+    @BindView(R.id.username_field)
+    protected EditText username;
 
     @Inject
     protected GoogleAuthManager googleAuthManager;
@@ -87,6 +97,20 @@ public class SignInActivity extends AppCompatActivity {
                 navigateToMainActivity();
             }
         });
+    }
+
+    @OnClick(R.id.user_login_button)
+    public void loginUser() {
+        if (isEmpty(username.getText()) || isEmpty(password.getText())) {
+            Toast.makeText(this, "Username or password cannot be empty", Toast.LENGTH_LONG).show();
+        }
+
+        if (password.getText().toString().equalsIgnoreCase("123456") &&
+                username.getText().toString().equalsIgnoreCase("ShopAgroUser")) {
+            navigateToMainActivity();
+        } else {
+            Toast.makeText(this, "Please enter correct credentials", Toast.LENGTH_LONG).show();
+        }
     }
 
     @OnClick(R.id.sign_in_button)
