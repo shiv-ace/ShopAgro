@@ -103,13 +103,16 @@ public class SignInActivity extends AppCompatActivity {
     public void loginUser() {
         if (isEmpty(username.getText()) || isEmpty(password.getText())) {
             Toast.makeText(this, "Username or password cannot be empty", Toast.LENGTH_LONG).show();
+            return;
         }
 
         if (password.getText().toString().equalsIgnoreCase("123456") &&
                 username.getText().toString().equalsIgnoreCase("ShopAgroUser")) {
+            updateLoggedInState(true);
             navigateToMainActivity();
         } else {
             Toast.makeText(this, "Please enter correct credentials", Toast.LENGTH_LONG).show();
+            return;
         }
     }
 

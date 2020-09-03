@@ -2,11 +2,13 @@ package com.codeshiv.shopagro.ui;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.codeshiv.shopagro.R;
 import com.codeshiv.shopagro.model.Product;
 
@@ -16,6 +18,8 @@ import butterknife.Unbinder;
 
 public class ProductDetails extends AppCompatActivity {
 
+    @BindView(R.id.product_image_view)
+    ImageView productImage;
     @BindView(R.id.product_name)
     TextView productName;
     @BindView(R.id.product_info)
@@ -43,6 +47,7 @@ public class ProductDetails extends AppCompatActivity {
             productPrice.setText("Product Price " + product.getPrice());
             productDate.setText("Product Date " + product.getEstimatedDate());
             productLikes.setText("Product Likes " + product.getLikes());
+            Glide.with(productImage).load(product.getImageUrl()).into(productImage);
         }
     }
 
